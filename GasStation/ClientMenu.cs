@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace GasStation
 {
-    public partial class Form3 : BaseForm
+    public partial class ClientMenu : BaseForm
     {
-        public Form3()
+        public ClientMenu(Form form)
         {
-            InitializeComponent();
+        }
+
+        private void buttonYes_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

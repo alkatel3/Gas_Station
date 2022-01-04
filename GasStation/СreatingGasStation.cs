@@ -18,7 +18,7 @@ namespace GasStation
         double maxFuel;
         double price;
 
-        public СreatingGasStation()
+        public СreatingGasStation(Form form)
         {
             InitializeComponent();
         }
@@ -39,6 +39,7 @@ namespace GasStation
                 var Station = new GasStation(nameStation, fuel, maxFuel, price, password);
                 Station.InformationForOwner();
                 Station.SaveStation();
+                this.Close();
             }
             catch
             {

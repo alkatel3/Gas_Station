@@ -10,17 +10,29 @@ using System.Windows.Forms;
 
 namespace GasStation
 {
-    public partial class Form4 : BaseForm
+    public partial class VerificatingOwner : BaseForm
     {
-        public Form4()
+        public VerificatingOwner(Form form)
         {
             InitializeComponent();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonNext_Click(object sender, EventArgs e)
         {
             var station = GasStation.FoundStation(textBox1.Text, textBox2.Text);
             station.InformationForOwner();
+        }
+
+        private void buttonCansel_Click(object sender, EventArgs e)
+        {
+            ListForm.Cansel();
+            this.Close();
+        }
+
+        private void buttonBack_Click(object sender, EventArgs e)
+        {
+            ListForm.Back();
+            this.Close();
         }
     }
 }

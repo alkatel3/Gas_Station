@@ -183,6 +183,7 @@ namespace GasStation
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.Location = new System.Drawing.Point(100, 100);
             this.Name = "СreatingGasStation";
             this.Text = "СreatingGasStation";
             this.ResumeLayout(false);

@@ -1,7 +1,7 @@
 ﻿
 namespace GasStation
 {
-    partial class Form4
+    partial class VerificatingOwner
     {
         /// <summary>
         /// Required designer variable.
@@ -33,9 +33,9 @@ namespace GasStation
             this.label2 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
+            this.buttonCansel = new System.Windows.Forms.Button();
+            this.buttonBack = new System.Windows.Forms.Button();
+            this.buttonNext = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -76,52 +76,55 @@ namespace GasStation
             this.textBox2.Size = new System.Drawing.Size(900, 40);
             this.textBox2.TabIndex = 6;
             // 
-            // button1
+            // buttonCansel
             // 
-            this.button1.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button1.Location = new System.Drawing.Point(367, 420);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(169, 84);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "Cansel";
-            this.button1.UseVisualStyleBackColor = false;
+            this.buttonCansel.BackColor = System.Drawing.Color.RoyalBlue;
+            this.buttonCansel.Location = new System.Drawing.Point(367, 420);
+            this.buttonCansel.Name = "buttonCansel";
+            this.buttonCansel.Size = new System.Drawing.Size(169, 84);
+            this.buttonCansel.TabIndex = 10;
+            this.buttonCansel.Text = "Cansel";
+            this.buttonCansel.UseVisualStyleBackColor = false;
+            this.buttonCansel.Click += new System.EventHandler(this.buttonCansel_Click);
             // 
-            // button2
+            // buttonBack
             // 
-            this.button2.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button2.Location = new System.Drawing.Point(542, 420);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(169, 84);
-            this.button2.TabIndex = 11;
-            this.button2.Text = "Back";
-            this.button2.UseVisualStyleBackColor = false;
+            this.buttonBack.BackColor = System.Drawing.Color.RoyalBlue;
+            this.buttonBack.Location = new System.Drawing.Point(542, 420);
+            this.buttonBack.Name = "buttonBack";
+            this.buttonBack.Size = new System.Drawing.Size(169, 84);
+            this.buttonBack.TabIndex = 11;
+            this.buttonBack.Text = "Back";
+            this.buttonBack.UseVisualStyleBackColor = false;
+            this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
-            // button3
+            // buttonNext
             // 
-            this.button3.BackColor = System.Drawing.Color.RoyalBlue;
-            this.button3.Location = new System.Drawing.Point(718, 420);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(169, 84);
-            this.button3.TabIndex = 12;
-            this.button3.Text = "Next";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
+            this.buttonNext.BackColor = System.Drawing.Color.RoyalBlue;
+            this.buttonNext.Location = new System.Drawing.Point(718, 420);
+            this.buttonNext.Name = "buttonNext";
+            this.buttonNext.Size = new System.Drawing.Size(169, 84);
+            this.buttonNext.TabIndex = 12;
+            this.buttonNext.Text = "Next";
+            this.buttonNext.UseVisualStyleBackColor = false;
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             // 
-            // Form4
+            // VerificatingOwner
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 23F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(900, 518);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonNext);
+            this.Controls.Add(this.buttonBack);
+            this.Controls.Add(this.buttonCansel);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.Name = "Form4";
-            this.Text = "СreatingGasStation";
+            this.Location = new System.Drawing.Point(100, 100);
+            this.Name = "VerificatingOwner";
+            this.Text = "Verification owner";
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -135,8 +138,8 @@ namespace GasStation
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
        
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button buttonCansel;
+        private System.Windows.Forms.Button buttonBack;
+        private System.Windows.Forms.Button buttonNext;
     }
 }
