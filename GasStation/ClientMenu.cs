@@ -12,8 +12,9 @@ namespace GasStation
 {
     public partial class ClientMenu : BaseForm
     {
-        public ClientMenu(Form form)
+        public ClientMenu()
         {
+            InitializeComponent();
         }
 
         private void buttonYes_Click(object sender, EventArgs e)

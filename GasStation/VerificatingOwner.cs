@@ -12,27 +12,15 @@ namespace GasStation
 {
     public partial class VerificatingOwner : BaseForm
     {
-        public VerificatingOwner(Form form)
+        public VerificatingOwner()
         {
             InitializeComponent();
         }
 
-        private void buttonNext_Click(object sender, EventArgs e)
-        {
-            var station = GasStation.FoundStation(textBox1.Text, textBox2.Text);
-            station.InformationForOwner();
-        }
-
-        private void buttonCansel_Click(object sender, EventArgs e)
-        {
-            ListForm.Cansel();
-            this.Close();
-        }
-
-        private void buttonBack_Click(object sender, EventArgs e)
-        {
-            ListForm.Back();
-            this.Close();
-        }
+        //private void buttonNext_Click(object sender, EventArgs e)
+        //{
+        //    var station = GasStation.FoundStation(textBox1.Text, textBox2.Text);
+        //    station.InformationForOwner();
+        //}
     }
 }

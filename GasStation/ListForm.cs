@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using System.Reflection;
 namespace GasStation
 {
     static class ListForm
@@ -17,20 +17,21 @@ namespace GasStation
             listForm.Add(form);
             counter++;
         }
-        static public Form Back()
+        static public void Back()
         {
-            Form form = listForm[counter];
             counter--;
-            return form;
+            
         }
-        static public Form Cansel()
+        static public void Cansel()
         {
             counter = 0;
-            return listForm[counter];
         }
         static public Form Show()
         {
-            return listForm[counter];
+            Type FormType = listForm[counter].GetType();
+            ConstructorInfo[] constructors= FormType.GetConstructors();
+            Form form = (Form)constructors[0].Invoke(new Object[0]);
+            return form;
         }
     }
 }

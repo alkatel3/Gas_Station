@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace GasStation
 {
-    public partial class СreatingGasStation : BaseForm
+    public partial class CreatingGasStation : BaseForm
     {
         string nameStation;
         string password;
@@ -18,12 +18,12 @@ namespace GasStation
         double maxFuel;
         double price;
 
-        public СreatingGasStation(Form form)
+        public CreatingGasStation()
         {
             InitializeComponent();
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonFinish_Click(object sender, EventArgs e)
         {
             try
             {

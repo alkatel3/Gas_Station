@@ -12,37 +12,21 @@ namespace GasStation
 {
     public partial class OwenrOrFounderMenu : BaseForm
     {
-        BaseForm form;
-        public OwenrOrFounderMenu(Form form)
+        public OwenrOrFounderMenu()
         {
             InitializeComponent();
         }
         private void buttonYes_Click(object sender, EventArgs e)
         {
-            form = new VerificatingOwner(this);
+            baseForm = new VerificatingOwner();
         }
 
         private void buttonNo_Click(object sender, EventArgs e)
         {
-            form = new СreatingGasStation(this);
+            baseForm = new CreatingGasStation();
         }
 
-        private void buttonNext_Click(object sender, EventArgs e)
-        {
-            ListForm.AddForm(form);
-            this.Close();
-        }
 
-        private void buttonCansel_Click(object sender, EventArgs e)
-        {
-            ListForm.Cansel();
-            this.Close();
-        }
-
-        private void buttonBack_Click(object sender, EventArgs e)
-        {
-            ListForm.Back();
-            this.Close();
-        }
+        
     }
 }

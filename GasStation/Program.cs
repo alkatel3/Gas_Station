@@ -18,10 +18,12 @@ namespace GasStation
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             ListForm.AddForm(new ChooseWho());
-            while (true)
+            while (BaseForm.Do)
             {
+
                 Application.Run(ListForm.Show());
             }
+            //Application.Run(new ChooseWho());
         }
     }
 }

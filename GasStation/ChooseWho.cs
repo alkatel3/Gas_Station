@@ -13,7 +13,6 @@ namespace GasStation
 
     public partial class ChooseWho : BaseForm
     {
-        BaseForm baseForm;
         public ChooseWho()
         {
             InitializeComponent();
@@ -26,23 +25,18 @@ namespace GasStation
 
         private void buttonClient_Click(object sender, EventArgs e)
         {
-            baseForm = new ClientMenu(this);
+            baseForm = new ClientMenu();
         }
 
-        private void buttonNext_Click(object sender, EventArgs e)
-        {
-            ListForm.AddForm(baseForm);
-            this.Close();
-        }
 
         private void buttonOwnerOrFounder_Click(object sender, EventArgs e)
         {
-            baseForm = new OwenrOrFounderMenu(this);
+            baseForm = new OwenrOrFounderMenu();
         }
 
-        private void buttonCansel_Click(object sender, EventArgs e)
+        private void ChooseWho_Load(object sender, EventArgs e)
         {
-            ListForm.Cansel();
+           BaseForm.Do = false;
             this.Close();
         }
     }
