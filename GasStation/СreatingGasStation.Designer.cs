@@ -106,7 +106,7 @@ namespace GasStation
             // 
             // buttonCansel
             //
-            this.buttonBack.Click += new System.EventHandler(this.buttonCansel_Click);
+            this.buttonCansel.Click += new System.EventHandler(this.buttonCansel_Click);
             // 
             // buttonBack
             // 
@@ -114,8 +114,8 @@ namespace GasStation
             // 
             // buttonNext
             // 
-            this.button1.Name = "Finish";
-            this.button1.Text = "Finish";
+            this.buttonNext.Name = "Finish";
+            this.buttonNext.Text = "Finish";
             this.buttonNext.Click += new System.EventHandler(this.buttonFinish_Click);
             // 
             // СreatingGasStation

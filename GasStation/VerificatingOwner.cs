@@ -17,10 +17,11 @@ namespace GasStation
             InitializeComponent();
         }
 
-        //private void buttonNext_Click(object sender, EventArgs e)
-        //{
-        //    var station = GasStation.FoundStation(textBox1.Text, textBox2.Text);
-        //    station.InformationForOwner();
-        //}
+        private void buttonNext_cl(object sender, EventArgs e)
+        {
+            var station = GasStation.FoundStation(textBox1.Text, textBox2.Text);
+            if(station!=null)
+            station.InformationForOwner();
+        }
     }
 }

@@ -19,6 +19,7 @@ namespace GasStation
         }
         static public void Back()
         {
+            listForm.RemoveAt(counter);
             counter--;
             
         }
@@ -28,10 +29,10 @@ namespace GasStation
         }
         static public Form Show()
         {
-            Type FormType = listForm[counter].GetType();
-            ConstructorInfo[] constructors= FormType.GetConstructors();
-            Form form = (Form)constructors[0].Invoke(new Object[0]);
-            return form;
+                Type FormType = listForm[counter].GetType();
+                ConstructorInfo[] constructors = FormType.GetConstructors();
+                Form form = (Form)constructors[0].Invoke(new Object[0]);
+                return form;
         }
     }
 }

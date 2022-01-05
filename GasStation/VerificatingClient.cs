@@ -10,20 +10,17 @@ using System.Windows.Forms;
 
 namespace GasStation
 {
-    public partial class ClientMenu : BaseForm
+    public partial class VerificatingClient : BaseForm
     {
-        public ClientMenu()
+        public VerificatingClient()
         {
             InitializeComponent();
         }
-
-        private void buttonYes_Click(object sender, EventArgs e)
+        private void buttonNext_cl(object sender, EventArgs e)
         {
-            baseForm = new VerificatingClient();
-        }
-        private void buttonNo_Click(object sender, EventArgs e)
-        {
-            baseForm = new ClientWithoutAccountMenu();
+            var Account = AccountClient.FoundAccount(textBox1.Text, textBox2.Text);
+            if (Account != null)
+                Account.GetInformation();
         }
     }
 }

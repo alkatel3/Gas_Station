@@ -1,7 +1,7 @@
 ﻿
 namespace GasStation
 {
-    partial class VerificatingOwner
+    partial class VerificatingClient
     {
         /// <summary>
         /// Required designer variable.
@@ -36,12 +36,20 @@ namespace GasStation
             // label1
             // 
             this.label1.Size = new System.Drawing.Size(195, 23);
-            this.label1.Text = "Input name your station";
+            this.label1.Text = "Input name your account";
             // 
             // label2
             // 
             this.label2.Size = new System.Drawing.Size(223, 23);
-            this.label2.Text = "Input password your station";
+            this.label2.Text = "Input password your account";
+            // 
+            // buttonNext
+            // 
+            this.buttonNext.Name = "Next";
+            this.buttonNext.Text = "Next";
+            this.buttonNext.Click += new System.EventHandler(this.buttonNext_cl);
+
+
             // 
             // buttonCansel
             // 
@@ -51,11 +59,7 @@ namespace GasStation
             // 
             this.buttonBack.Click += new System.EventHandler(this.buttonBack_Click);
             // 
-            // buttonNext
-            // 
-            this.buttonNext.Click += new System.EventHandler(this.buttonNext_cl);
-            // 
-            // VerificatingOwner
+            // CreatingAccount
             // 
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.buttonBack);
@@ -64,9 +68,10 @@ namespace GasStation
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "VerificatingOwner";
-            this.Text = "Verification owner";
+            this.Name = "CreatingAccount";
+            this.Text = "Creating account"; ;
         }
+
         #endregion
     }
 }

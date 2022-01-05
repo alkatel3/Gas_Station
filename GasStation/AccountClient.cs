@@ -1,10 +1,13 @@
 ﻿using System;
-
+using System.Collections.Generic;
+using System.Linq;
+using System.Windows.Forms;
 
 namespace GasStation
 {
     class AccountClient
     {
+        static List<AccountClient> AccountList = new();
         public string NameClient { get; private set; }
         private string Password;
         private byte AccrualBonuses = 100;//нарахування здійснюється як 1% від суми купленого палива,тобто для розрахунку треба: sum/100
@@ -13,12 +16,31 @@ namespace GasStation
         {
             NameClient = nameClient;
             Password = password;
-            Console.WriteLine(GetInformation());
         }
-        public string GetInformation()
+        public void GetInformation()
         {
-            return $"You account:\nName: {NameClient}\nPassword: {Password}\nBonus: {Bonus} $";
+            MessageBox.Show(
+                $"You account:\n" +
+                $"Name: {NameClient}\n" +
+                $"Password: {Password}\n" +
+                $"Bonus: {Bonus} $");
         }
+        public void SaveAccount()
+        {
+            AccountList.Add(this);
+        }
+        static public AccountClient FoundAccount(string AccountName, string AccountPassword)
+        {
+            var Accounts = from accounts in AccountList
+                           where accounts.NameClient == AccountName
+                           where accounts.Password == AccountPassword
+                           select accounts;
+            AccountClient account = Accounts.ToArray().Length == 1 ? Accounts.ToArray()[0] : null;
+            return account;
+        }
+
+
+
         public bool PasswordVerification(string password)
         {
             return Password == password;
@@ -36,7 +58,7 @@ namespace GasStation
                 Bonus -= sum;
                 Console.WriteLine("To pay 0 $");
             }
-            Console.WriteLine(GetInformation());
+            GetInformation();
         }
         public void AddingBonus(double sum)
         {

@@ -1,7 +1,7 @@
 ﻿
 namespace GasStation
 {
-    partial class ClientMenu
+    partial class ClientWithoutAccountMenu
     {
         /// <summary>
         /// Required designer variable.
@@ -36,21 +36,19 @@ namespace GasStation
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Size = new System.Drawing.Size(677, 59);
-            this.label1.Text = "             Do you have gas account?";
+            this.label1.Text = "          Do you want to create account?";
             // 
             // buttonYes
             // 
             this.button1.Location = new System.Drawing.Point(0, 59);
             this.button1.Name = "buttonYes";
             this.button1.Text = "Yes";
-            this.button1.Click += new System.EventHandler(this.buttonYes_Click);
-            // 
+            this.button1.Click += new System.EventHandler(buttonYes_Click);
             // buttonNo
             // 
             this.button2.Location = new System.Drawing.Point(0, 179);
             this.button2.Name = "buttonNo";
             this.button2.Text = "No";
-            this.button2.Click += new System.EventHandler(this.buttonNo_Click);
             //
             //buttonNext
             //

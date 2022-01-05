@@ -36,6 +36,10 @@
             //
             this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
             //
+            //buttonBack
+            //
+            this.buttonBack.BackColor = System.Drawing.Color.Gray;
+            //
             //buttonCansel
             //
             this.buttonCansel.Click += new System.EventHandler(ChooseWho_Load);
