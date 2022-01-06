@@ -23,7 +23,7 @@ namespace GasStation
 
                 Application.Run(ListForm.Show());
             }
-            //Application.Run(new ChooseWho());
+            //Application.Run(new ChooseGasStation());
         }
     }
 }

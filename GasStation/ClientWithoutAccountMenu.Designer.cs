@@ -49,6 +49,7 @@ namespace GasStation
             this.button2.Location = new System.Drawing.Point(0, 179);
             this.button2.Name = "buttonNo";
             this.button2.Text = "No";
+            this.button2.Click += new System.EventHandler(buttonNo_Click);
             //
             //buttonNext
             //

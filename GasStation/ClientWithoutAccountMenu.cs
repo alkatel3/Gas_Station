@@ -20,5 +20,9 @@ namespace GasStation
         {
             baseForm = new CreatingAccount();
         }
+        private void buttonNo_Click(object senser,EventArgs e)
+        {
+            baseForm = new ChooseGasStation();
+        }
     }
 }

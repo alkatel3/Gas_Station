@@ -38,6 +38,16 @@ namespace GasStation
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            //
+            // listBox1
+            // 
+            BaseForm.listBox1.FormattingEnabled = true;
+            BaseForm.listBox1.ItemHeight = 20;
+            BaseForm.listBox1.Location = new System.Drawing.Point(0, 55);
+            BaseForm.listBox1.Name = "listBox1";
+            BaseForm.listBox1.Size = new System.Drawing.Size(800, 250);
+            BaseForm.listBox1.TabIndex = 0;
+            BaseForm.listBox1.HorizontalScrollbar = true;
             // 
             // textBox2
             // 
@@ -150,5 +160,6 @@ namespace GasStation
         protected System.Windows.Forms.Label label2;
         protected System.Windows.Forms.TextBox textBox1;
         protected System.Windows.Forms.TextBox textBox2;
+        public static System.Windows.Forms.ListBox listBox1 = new System.Windows.Forms.ListBox();
     }
 }

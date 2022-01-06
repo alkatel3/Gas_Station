@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -24,7 +25,7 @@ namespace GasStation
             PriceFuel = priceFuel;
             Password = personalPassword;
         }
-         public void InformationForOwner()
+        public void InformationForOwner()
         {
             MessageBox.Show(
                     $"Your station: {NameGasStation}\n" +
@@ -37,33 +38,39 @@ namespace GasStation
         public void SaveStation()
         {
             StationList.Add(this);
+            BaseForm.listBox1.Items.Add(
+                $"{this.NameGasStation}\t\t\t\t" +
+                $"{this.FuelInGasStation}\t\t\t\t" +
+                $"{this.PriceFuel}");
+
         }
         static public GasStation FoundStation(string nameStation, string passwordStation)
         {
             var Stations = from stations in StationList
                            where stations.NameGasStation == nameStation
-                           where stations.Password==passwordStation
+                           where stations.Password == passwordStation
                            select stations;
             GasStation station = Stations.ToArray().Length == 1 ? Stations.ToArray()[0] : null;
             return station;
         }
-        //public string InformationForClient()
-        //{
-        //    return $"Name: {NameGasStation}\tFuel = {FuelInGasStation} l.\tPrise = {PriceFuel} $/l";
-        //}
-        //public double SellingFuel(double orderedFuel)
-        //{
-        //    if (orderedFuel <= FuelInGasStation)
-        //    {
-        //        FuelInGasStation -= orderedFuel;
-        //        return orderedFuel * PriceFuel;
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine("Choose other station");
-        //        return 0;
-        //    }
-        //}
+        static public GasStation FoundStation(int index)
+        {
+            return StationList[index];
+        }
+        public double SellingFuel(double orderedFuel)
+        {
+            if (orderedFuel <= FuelInGasStation)
+            {
+                FuelInGasStation -= orderedFuel;
+                MessageBox.Show($"{orderedFuel * PriceFuel}");
+                return orderedFuel * PriceFuel;
+            }
+            else
+            {
+                MessageBox.Show("Choose other station");
+                return 0;
+            }
+        }
         //public string InformationForProvider()
         //{
         //    return $"Name: {NameGasStation}\t buy fuel for {PriceFuel / MarkUp} $ \t can buy {MaxFuel - FuelInGasStation} l ";
@@ -114,7 +121,7 @@ namespace GasStation
         //    }
         //    return null;
         //}
-       
-        
+
+
     }
 }

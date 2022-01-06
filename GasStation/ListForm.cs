@@ -21,10 +21,10 @@ namespace GasStation
         {
             listForm.RemoveAt(counter);
             counter--;
-            
         }
         static public void Cansel()
         {
+            listForm.RemoveRange(1, listForm.ToArray().Length - 1);
             counter = 0;
         }
         static public Form Show()
