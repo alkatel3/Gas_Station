@@ -1,7 +1,7 @@
 ﻿
 namespace GasStation
 {
-    partial class ChooseGasStation
+    partial class Provider
     {
         /// <summary>
         /// Required designer variable.
@@ -41,8 +41,8 @@ namespace GasStation
             // 
             // label2
             // 
-            this.label1.Location = new System.Drawing.Point(0, 30);
-            this.label1.Text = "Name                                          Fuel                                             Price";
+            this.label1.Location = new System.Drawing.Point(0, 33);
+            this.label1.Text = "Name                                          Can buy fuel                                     Can give you price";
             // 
             // label3
             // 
@@ -52,7 +52,7 @@ namespace GasStation
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(247, 23);
             this.label3.TabIndex = 20;
-            this.label3.Text = "How many fuel do you want (L)";
+            this.label3.Text = "How many fuel do you want to sell (L)";
             // 
             // textBox3
             // 
@@ -86,7 +86,7 @@ namespace GasStation
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.buttonCansel);
-            this.Controls.Add(BaseForm.listBox1);
+            this.Controls.Add(BaseForm.listBox2);
             this.Name = "ChooseGasStation";
             this.Text = "ChooseGasStation";
             this.ResumeLayout(false);
@@ -95,7 +95,7 @@ namespace GasStation
         }
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
-        #endregion
 
+        #endregion
     }
 }

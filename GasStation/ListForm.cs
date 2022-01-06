@@ -29,10 +29,18 @@ namespace GasStation
         }
         static public Form Show()
         {
+            try
+            {
                 Type FormType = listForm[counter].GetType();
                 ConstructorInfo[] constructors = FormType.GetConstructors();
                 Form form = (Form)constructors[0].Invoke(new Object[0]);
                 return form;
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Problem with open" + ex.Message);
+                return new ChooseWho();
+            }
         }
     }
 }

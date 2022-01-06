@@ -21,7 +21,7 @@ namespace GasStation
             var Account = AccountClient.FoundAccount(textBox1.Text, textBox2.Text);
             if (Account != null)
                 Account.GetInformation();
-            baseForm = new ChooseGasStation();
+            baseForm = new ChooseGasStationForClient();
             base.buttonNext_Click(sender, e); 
         }
     }

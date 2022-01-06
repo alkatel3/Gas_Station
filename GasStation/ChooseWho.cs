@@ -20,7 +20,7 @@ namespace GasStation
 
         private void buttonProvider_Click(object sender, EventArgs e)
         {
-            
+            baseForm = new Provider();
         }
 
         private void buttonClient_Click(object sender, EventArgs e)

@@ -10,39 +10,29 @@ using System.Windows.Forms;
 
 namespace GasStation
 {
-    public partial class ChooseGasStation : BaseForm
+    public partial class Provider : BaseForm
     {
-        AccountClient accountClient;
-        public ChooseGasStation()
+        public Provider()
         {
             InitializeComponent();
         }
-        private void Next(object sender,EventArgs e)
+        private void Next(object sender, EventArgs e)
         {
             try
             {
-                int index = listBox1.SelectedIndex;
+                int index = listBox2.SelectedIndex;
                 GasStation station = GasStation.FoundStation(index);
                 double fuel = Double.Parse(textBox3.Text);
                 if (fuel <= 0)
                 {
                     throw new Exception();
                 }
-                double sum= station.SellingFuel(fuel);
-
-                accountClient = AccountClient.GetValidAccount();
-                accountClient?.AddingBonus(sum);
+                station.BuyFuel(fuel);
             }
-            catch
+            catch(Exception ex)
             {
-                MessageBox.Show("Incorect");
+                MessageBox.Show("Incorect\n" +ex.Message);
             }
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
-;

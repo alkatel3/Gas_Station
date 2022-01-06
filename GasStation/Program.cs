@@ -20,8 +20,15 @@ namespace GasStation
             ListForm.AddForm(new ChooseWho());
             while (BaseForm.Do)
             {
-
-                Application.Run(ListForm.Show());
+                try
+                {
+                    Application.Run(ListForm.Show());
+                }
+                catch(Exception e)
+                {
+                    MessageBox.Show("Problem with run form \n" + e.Message);
+                    ListForm.Cansel();
+                }
             }
             //Application.Run(new ChooseGasStation());
         }

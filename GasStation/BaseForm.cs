@@ -32,5 +32,10 @@ namespace GasStation
             ListForm.AddForm(baseForm);
             this.Close();
         }
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

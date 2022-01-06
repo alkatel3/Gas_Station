@@ -13,6 +13,7 @@ namespace GasStation
         private double FuelInGasStation;
         private double PriceFuel;
         private string Password;
+        private DateTime datetime;
         private double DeliveryPrice;
         private double MaxFuel; //цим задається скільки максимум палива може містити заправка (об'єм бункера на паливо)
         private double MarkUp = 1.3; //ймовірна націнка власника заправки 30% тобто від закупівельну ціну множить на 1.3
@@ -25,6 +26,7 @@ namespace GasStation
             MaxFuel = maxFuel;
             PriceFuel = priceFuel;
             Password = personalPassword;
+            datetime = DateTime.Now;
             DeliveryPrice = PriceFuel / MarkUp;
         }
         public void InformationForOwner()
@@ -34,7 +36,8 @@ namespace GasStation
                     $"Password = {Password} \n" +
                     $"Fuel = {FuelInGasStation}\n" +
                     $"Max fuel = {MaxFuel} l.\n" +
-                    $"Prise = {PriceFuel}$"
+                    $"Prise = {PriceFuel}$\n" +
+                    $"Date created = {datetime}"
                     );
         }
         public void SaveStation()
@@ -77,22 +80,17 @@ namespace GasStation
                 return 0;
             }
         }
-
-
-
-        //public double BuyFuel(double deliveryFuel)
-        //{
-        //    if (deliveryFuel + FuelInGasStation <= MaxFuel)
-        //    {
-        //        FuelInGasStation += deliveryFuel;
-        //        Console.WriteLine($"Get {deliveryFuel * PriceFuel / MarkUp}");
-        //        return 1;
-        //    }
-        //    else
-        //    {
-        //        Console.WriteLine("Choose other station");
-        //        return 0;
-        //    }
-        //}
+        public void BuyFuel(double deliveryFuel)
+        {
+            if (deliveryFuel + FuelInGasStation <= MaxFuel)
+            {
+                FuelInGasStation += deliveryFuel;
+                MessageBox.Show($"Get {(deliveryFuel * PriceFuel / MarkUp).ToString("#.##")}");
+            }
+            else
+            {
+               MessageBox.Show("Choose other station");
+            }
+        }
     }
 }
