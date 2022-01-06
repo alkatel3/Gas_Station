@@ -13,6 +13,7 @@ namespace GasStation
         private double FuelInGasStation;
         private double PriceFuel;
         private string Password;
+        private double DeliveryPrice;
         private double MaxFuel; //цим задається скільки максимум палива може містити заправка (об'єм бункера на паливо)
         private double MarkUp = 1.3; //ймовірна націнка власника заправки 30% тобто від закупівельну ціну множить на 1.3
         public GasStation(string nameGasStation, double fuelInGasStation,
@@ -24,6 +25,7 @@ namespace GasStation
             MaxFuel = maxFuel;
             PriceFuel = priceFuel;
             Password = personalPassword;
+            DeliveryPrice = PriceFuel / MarkUp;
         }
         public void InformationForOwner()
         {
@@ -42,6 +44,10 @@ namespace GasStation
                 $"{this.NameGasStation}\t\t\t\t" +
                 $"{this.FuelInGasStation}\t\t\t\t" +
                 $"{this.PriceFuel}");
+            BaseForm.listBox2.Items.Add(
+                $"{this.NameGasStation}\t\t\t\t" +
+                $"{this.MaxFuel-FuelInGasStation}\t\t\t\t" +
+                $"{this.MarkUp}");
 
         }
         static public GasStation FoundStation(string nameStation, string passwordStation)
@@ -71,10 +77,9 @@ namespace GasStation
                 return 0;
             }
         }
-        //public string InformationForProvider()
-        //{
-        //    return $"Name: {NameGasStation}\t buy fuel for {PriceFuel / MarkUp} $ \t can buy {MaxFuel - FuelInGasStation} l ";
-        //}
+
+
+
         //public double BuyFuel(double deliveryFuel)
         //{
         //    if (deliveryFuel + FuelInGasStation <= MaxFuel)
@@ -89,39 +94,5 @@ namespace GasStation
         //        return 0;
         //    }
         //}
-        //static public GasStation ChooseGasStation(byte chooseWho, List<GasStation> GasStations)
-        //{
-        //    if (GasStations != null)
-        //    {
-        //        Console.WriteLine("Choose:\n(input number)\n");
-        //        int i = 0; //задає номерацію списку
-        //        foreach (var station in GasStations)
-        //        {
-        //            if (chooseWho == 2)
-        //            {
-        //                Console.WriteLine($"{++i}. {station.InformationForClient()}");
-        //            }
-        //            else if (chooseWho == 3)
-        //            {
-        //                Console.WriteLine($"{++i}. {station.InformationForProvider()}");
-        //            }
-        //        }
-        //        Console.WriteLine("\n");
-        //        int chooseNumberStation = Convert.ToInt32(Console.ReadLine());
-        //        if (chooseNumberStation > 0 && chooseNumberStation <= i)
-        //        {
-        //            foreach (var station in GasStations)
-        //            {
-        //                if (GasStations.IndexOf(station) == chooseNumberStation - 1)
-        //                {
-        //                    return station;
-        //                }
-        //            }
-        //        }
-        //    }
-        //    return null;
-        //}
-
-
     }
 }

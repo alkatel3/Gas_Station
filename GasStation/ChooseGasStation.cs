@@ -12,6 +12,7 @@ namespace GasStation
 {
     public partial class ChooseGasStation : BaseForm
     {
+        AccountClient accountClient;
         public ChooseGasStation()
         {
             InitializeComponent();
@@ -27,7 +28,10 @@ namespace GasStation
                 {
                     throw new Exception();
                 }
-                station.SellingFuel(fuel);
+                double sum= station.SellingFuel(fuel);
+
+                accountClient = AccountClient.GetValidAccount();
+                accountClient?.AddingBonus(sum);
             }
             catch
             {

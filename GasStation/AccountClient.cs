@@ -7,12 +7,13 @@ namespace GasStation
 {
     class AccountClient
     {
+        static AccountClient validAccount=null;
         static List<AccountClient> AccountList = new();
         public string NameClient { get; private set; }
         private string Password;
         private byte AccrualBonuses = 100;//нарахування здійснюється як 1% від суми купленого палива,тобто для розрахунку треба: sum/100
         private double Bonus = 0;// при створенні акаунту сума бонусів дорівнює 0
-        internal AccountClient(string nameClient, string password)
+        public AccountClient(string nameClient, string password)
         {
             NameClient = nameClient;
             Password = password;
@@ -35,36 +36,39 @@ namespace GasStation
                            where accounts.NameClient == AccountName
                            where accounts.Password == AccountPassword
                            select accounts;
-            AccountClient account = Accounts.ToArray().Length == 1 ? Accounts.ToArray()[0] : null;
+            validAccount = Accounts.ToArray().Length == 1 ? Accounts.ToArray()[0] : null;
+            return validAccount;
+        }
+        static public AccountClient GetValidAccount()
+        {
+            AccountClient account = validAccount;
+            validAccount = null;
             return account;
-        }
-
-
-
-        public bool PasswordVerification(string password)
-        {
-            return Password == password;
-        }
-        public void UsingBonus(double sum)
-        {
-            if (Bonus <= sum)
-            {
-                sum -= Bonus;
-                Bonus = 0;// в даному випадку всі бонуси йдуть на погашення суми
-                Console.WriteLine($"To pay {sum} $");
-            }
-            else
-            {
-                Bonus -= sum;
-                Console.WriteLine("To pay 0 $");
-            }
-            GetInformation();
         }
         public void AddingBonus(double sum)
         {
             Bonus += sum / AccrualBonuses;
-            Console.WriteLine($"You are added {sum / AccrualBonuses} bonus");
+            MessageBox.Show($"You are added {sum / AccrualBonuses} bonus");
             GetInformation();
         }
+
+
+       
+        //public void UsingBonus(double sum)
+        //{
+        //    if (Bonus <= sum)
+        //    {
+        //        sum -= Bonus;
+        //        Bonus = 0;// в даному випадку всі бонуси йдуть на погашення суми
+        //        MessageBox.Show($"To pay {sum} $");
+        //    }
+        //    else
+        //    {
+        //        Bonus -= sum;
+        //        MessageBox.Show("To pay 0 $");
+        //    }
+        //    GetInformation();
+        //}
+        
     }
 }

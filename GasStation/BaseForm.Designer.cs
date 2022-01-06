@@ -48,6 +48,16 @@ namespace GasStation
             BaseForm.listBox1.Size = new System.Drawing.Size(800, 250);
             BaseForm.listBox1.TabIndex = 0;
             BaseForm.listBox1.HorizontalScrollbar = true;
+            //
+            // listBox2
+            // 
+            BaseForm.listBox2.FormattingEnabled = true;
+            BaseForm.listBox2.ItemHeight = 20;
+            BaseForm.listBox2.Location = new System.Drawing.Point(0, 55);
+            BaseForm.listBox2.Name = "listBox2";
+            BaseForm.listBox2.Size = new System.Drawing.Size(800, 250);
+            BaseForm.listBox2.TabIndex = 0;
+            BaseForm.listBox2.HorizontalScrollbar = true;
             // 
             // textBox2
             // 
@@ -161,5 +171,6 @@ namespace GasStation
         protected System.Windows.Forms.TextBox textBox1;
         protected System.Windows.Forms.TextBox textBox2;
         public static System.Windows.Forms.ListBox listBox1 = new System.Windows.Forms.ListBox();
+        public static System.Windows.Forms.ListBox listBox2 = new System.Windows.Forms.ListBox();
     }
 }
