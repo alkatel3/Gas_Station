@@ -21,13 +21,12 @@ namespace GasStation
             try
             {
                 int index = listBox2.SelectedIndex;
-                GasStation station = GasStation.FoundStation(index);
                 double fuel = Double.Parse(textBox3.Text);
                 if (fuel <= 0)
                 {
                     throw new Exception();
                 }
-                station.BuyFuel(fuel);
+                GasStation.BuyFuel(fuel, index);
             }
             catch(Exception ex)
             {

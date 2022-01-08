@@ -62,17 +62,23 @@ namespace GasStation
             GasStation station = Stations.ToArray().Length == 1 ? Stations.ToArray()[0] : null;
             return station;
         }
-        static public GasStation FoundStation(int index)
+        static public double SellingFuel(double orderedFuel,int index)
         {
-            return StationList[index];
-        }
-        public double SellingFuel(double orderedFuel)
-        {
-            if (orderedFuel <= FuelInGasStation)
+            GasStation station = StationList[index];
+            if (orderedFuel <= station.FuelInGasStation)
             {
-                FuelInGasStation -= orderedFuel;
-                MessageBox.Show($"{orderedFuel * PriceFuel}");
-                return orderedFuel * PriceFuel;
+                station.FuelInGasStation -= orderedFuel;
+                BaseForm.listBox1.Items[index]= 
+                $"{station.NameGasStation}\t\t\t\t" +
+                $"{station.FuelInGasStation}\t\t\t\t" +
+                $"{station.PriceFuel}";
+                BaseForm.listBox2.Items[index] =
+                $"{station.NameGasStation}\t\t\t\t" +
+                $"{station.MaxFuel - station.FuelInGasStation}\t\t\t\t" +
+                $"{station.MarkUp}";
+                MessageBox.Show($"{orderedFuel * station.PriceFuel}");
+
+                return orderedFuel * station.PriceFuel;
             }
             else
             {
@@ -80,12 +86,21 @@ namespace GasStation
                 return 0;
             }
         }
-        public void BuyFuel(double deliveryFuel)
+        public static void BuyFuel(double deliveryFuel, int index)
         {
-            if (deliveryFuel + FuelInGasStation <= MaxFuel)
+            GasStation station = StationList[index];
+            if (deliveryFuel + station.FuelInGasStation <= station.MaxFuel)
             {
-                FuelInGasStation += deliveryFuel;
-                MessageBox.Show($"Get {(deliveryFuel * PriceFuel / MarkUp).ToString("#.##")}");
+                station.FuelInGasStation += deliveryFuel;
+                BaseForm.listBox2.Items[index] =
+                $"{station.NameGasStation}\t\t\t\t" +
+                $"{station.MaxFuel - station.FuelInGasStation}\t\t\t\t" +
+                $"{station.MarkUp}";
+                BaseForm.listBox1.Items[index] =
+                $"{station.NameGasStation}\t\t\t\t" +
+                $"{station.FuelInGasStation}\t\t\t\t" +
+                $"{station.PriceFuel}";
+                MessageBox.Show($"Get {(deliveryFuel * station.PriceFuel / station.MarkUp).ToString("#.##")}");
             }
             else
             {

@@ -22,13 +22,12 @@ namespace GasStation
             try
             {
                 int index = listBox1.SelectedIndex;
-                GasStation station = GasStation.FoundStation(index);
                 double fuel = Double.Parse(textBox3.Text);
                 if (fuel <= 0)
                 {
                     throw new Exception();
                 }
-                double sum= station.SellingFuel(fuel);
+                double sum= GasStation.SellingFuel(fuel, index);
 
                 accountClient = AccountClient.GetValidAccount();
                 accountClient?.AddingBonus(sum);
