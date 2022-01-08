@@ -1,5 +1,6 @@
 ﻿
 using System;
+using System.Threading.Tasks;
 
 namespace GasStation
 {
@@ -31,6 +32,7 @@ namespace GasStation
         /// </summary>
          protected virtual void InitializeComponent()
         {
+            this.labelTime = new System.Windows.Forms.Label();
             this.buttonNext = new System.Windows.Forms.Button();
             this.buttonCansel = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -39,8 +41,8 @@ namespace GasStation
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer();
             this.label2 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // buttonNext
@@ -142,14 +144,23 @@ namespace GasStation
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(100, 23);
             this.label2.TabIndex = 6;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(12, 411);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(204, 27);
-            this.dateTimePicker1.TabIndex = 0;
-            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            //
+            //timer1
+            //
+            this.timer1.Interval = 100;
+            this.timer1.Tick += new System.EventHandler(timer1_Tick);
+            this.timer1.Enabled = true;
+            //
+            //label3
+            //
+            this.labelTime.AutoSize = true;
+            this.labelTime.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.labelTime.Location = new System.Drawing.Point(10, 365);
+            this.labelTime.Name = "label3";
+            this.labelTime.TabIndex = 6;
+            this.labelTime.Size = new System.Drawing.Size(100, 23);
+            this.labelTime.TabIndex = 6;
+            this.labelTime.Text = "-";
             // 
             // BaseForm
             // 
@@ -159,7 +170,6 @@ namespace GasStation
             this.AutoSize = true;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.dateTimePicker1);
             this.Location = new System.Drawing.Point(100, 100);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -170,6 +180,7 @@ namespace GasStation
         }
 
         #endregion
+
         protected System.Windows.Forms.Button buttonNext;
         protected System.Windows.Forms.Button buttonBack;
         protected System.Windows.Forms.Button buttonCansel;
@@ -177,11 +188,12 @@ namespace GasStation
         protected System.Windows.Forms.Button button2;
         protected System.Windows.Forms.Label label1;
         protected System.Windows.Forms.Label label2;
+        protected System.Windows.Forms.Label labelTime;
         protected System.Windows.Forms.TextBox textBox1;
         protected System.Windows.Forms.TextBox textBox2;
         public static System.Windows.Forms.ListBox listBox1 = new System.Windows.Forms.ListBox();
         public static System.Windows.Forms.ListBox listBox2 = new System.Windows.Forms.ListBox();
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        protected System.Windows.Forms.Timer timer1;
         
 
 

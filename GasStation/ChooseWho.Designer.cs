@@ -78,10 +78,10 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.buttonBack);
+            this.Controls.Add(this.labelTime);
             this.Controls.Add(this.buttonCansel);
             this.Name = "ChooseWho";
             this.Text = "Gas Station";
-            //this.Load += new System.EventHandler(this.ChooseWho_Load);
             this.ResumeLayout(false);
 
         }

@@ -65,6 +65,7 @@ namespace GasStation
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonCansel);
             this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.labelTime);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);

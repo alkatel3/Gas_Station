@@ -67,6 +67,7 @@ namespace GasStation
             // OwenrOrFounderMenu
             // 
             this.Controls.Add(this.buttonNext);
+            this.Controls.Add(this.labelTime);
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonCansel);
             this.Controls.Add(this.button2);

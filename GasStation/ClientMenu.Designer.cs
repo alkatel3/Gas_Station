@@ -70,6 +70,7 @@ namespace GasStation
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonCansel);
             this.Controls.Add(this.button2);
+            this.Controls.Add(this.labelTime);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Location = new System.Drawing.Point(100, 100);
