@@ -36,7 +36,7 @@ namespace GasStation
                 {
                     throw new Exception();
                 }
-                var Station = new GasStation(nameStation, fuel, maxFuel, price, password);
+                var Station = new GasStation(nameStation, fuel, maxFuel, price, password,DateTime.Now);
                 Station.InformationForOwner();
                 Station.SaveStation();
                 this.Close();
