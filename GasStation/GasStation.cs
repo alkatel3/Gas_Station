@@ -9,7 +9,6 @@ namespace GasStation
     class GasStation
     {
         static List<GasStation> StationList = new();
-        private static bool DoReading=true;
         public string NameGasStation { get; private set; }
         private double FuelInGasStation;
         private double PriceFuel;
@@ -42,15 +41,6 @@ namespace GasStation
         }
         public async void SaveStation()
         {
-            if (DoReading)
-            {
-                ReadFromListStationAsync();
-                DoReading = false;
-                foreach(var station in StationList)
-                {
-                    station.InformationForOwner();
-                }
-            }
             StationList.Add(this);
             using (StreamWriter writer = new StreamWriter("GasStationList.txt", true))
             {
@@ -62,20 +52,24 @@ namespace GasStation
                     $"{Password}\t\t" +
                     $"{datetime}");  // асинхронная запись в файл
             }
-            //using (StreamReader reader = new StreamReader("GasStationList.txt"))
-            //{
-            //    string result = await reader.ReadToEndAsync();  // асинхронное чтение из файла
-            //    MessageBox.Show(result);
-            //}
-            BaseForm.listBox1.Items.Add(
-                $"{this.NameGasStation}\t\t\t\t" +
-                $"{this.FuelInGasStation}\t\t\t\t" +
-                $"{this.PriceFuel:#,##}");
-            BaseForm.listBox2.Items.Add(
-                $"{this.NameGasStation}\t\t\t\t" +
-                $"{this.MaxFuel-FuelInGasStation}\t\t\t\t" +
-                $"{this.PriceFuel/MarkUp:#.##}");
+            AddingItemsToListBoxs();
+            //BaseForm.listBox1.Items.Add(
+            //    $"{this.NameGasStation}\t\t\t\t" +
+            //    $"{this.FuelInGasStation}\t\t\t\t" +
+            //    $"{this.PriceFuel:#,##}");
+            //BaseForm.listBox2.Items.Add(
+            //    $"{this.NameGasStation}\t\t\t\t" +
+            //    $"{this.MaxFuel-FuelInGasStation}\t\t\t\t" +
+            //    $"{this.PriceFuel/MarkUp:#.##}");
 
+        }
+        static public GasStation FoundStation(string nameStation)
+        {
+            var Stations = from stations in StationList
+                           where stations.NameGasStation == nameStation
+                           select stations;
+            GasStation station = Stations.ToArray().Length == 1 ? Stations.ToArray()[0] : null;
+            return station;
         }
         static public GasStation FoundStation(string nameStation, string passwordStation)
         {
@@ -92,7 +86,7 @@ namespace GasStation
             if (orderedFuel <= station.FuelInGasStation)
             {
                 station.FuelInGasStation -= orderedFuel;
-                station.FullingListBoxs(index);
+                station.ChangingListBoxs(index);
                 MessageBox.Show($"{orderedFuel * station.PriceFuel}$");
 
                 return orderedFuel * station.PriceFuel;
@@ -109,7 +103,7 @@ namespace GasStation
             if (deliveryFuel + station.FuelInGasStation <= station.MaxFuel)
             {
                 station.FuelInGasStation += deliveryFuel;
-                station.FullingListBoxs(index);
+                station.ChangingListBoxs(index);
                 MessageBox.Show($"Get {(deliveryFuel * station.PriceFuel / station.MarkUp):#.##}");
             }
             else
@@ -117,7 +111,7 @@ namespace GasStation
                MessageBox.Show("Choose other station");
             }
         }
-        private void FullingListBoxs( int index)
+        private void ChangingListBoxs(int index)
         {
             BaseForm.listBox1.Items[index] =
                 $"{NameGasStation}\t\t\t\t" +
@@ -126,9 +120,22 @@ namespace GasStation
             BaseForm.listBox2.Items[index] =
             $"{NameGasStation}\t\t\t\t" +
             $"{MaxFuel - FuelInGasStation}\t\t\t\t" +
-            $"{PriceFuel/MarkUp:#.##}";
+            $"{PriceFuel / MarkUp:#.##}";
+
         }
-        private async void ReadFromListStationAsync()
+        private void AddingItemsToListBoxs()
+        {
+            BaseForm.listBox1.Items.Add (
+                $"{NameGasStation}\t\t\t\t" +
+                $"{FuelInGasStation}\t\t\t\t" +
+                $"{PriceFuel:#.##}");
+            BaseForm.listBox2.Items.Add(
+            $"{NameGasStation}\t\t\t\t" +
+            $"{MaxFuel - FuelInGasStation}\t\t\t\t" +
+            $"{PriceFuel / MarkUp:#.##}");
+
+        }
+        public static async void ReadFromListStationAsync()
         {
             GasStation station;
             using (StreamReader reader = new StreamReader("GasStationList.txt"))
@@ -146,6 +153,23 @@ namespace GasStation
                         gasStationParams[4],
                         DateTime.Parse(gasStationParams[5]));
                     StationList.Add(station);
+                    station.AddingItemsToListBoxs();
+                }
+            }
+        }
+        static async public void SaveAllStationAtFile()
+        {
+            using (StreamWriter writer = new StreamWriter("GasStationList.txt",false))
+            {
+                foreach (var station in StationList)
+                {
+                    await writer.WriteLineAsync(
+                        $"{station.NameGasStation}\t\t" +
+                        $"{station.FuelInGasStation}\t\t" +
+                        $"{station.MaxFuel}\t\t" +
+                        $"{station.PriceFuel}\t\t" +
+                        $"{station.Password}\t\t" +
+                        $"{station.datetime}");  // асинхронная запись в файл
                 }
             }
         }

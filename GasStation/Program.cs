@@ -29,6 +29,10 @@ namespace GasStation
                     MessageBox.Show("Problem with run form \n" + e.Message);
                     ListForm.Cansel();
                 }
+                finally
+                {
+                    GasStation.SaveAllStationAtFile();
+                }
             }
             //Application.Run(new ChooseGasStation());
         }

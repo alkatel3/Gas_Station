@@ -32,6 +32,11 @@ namespace GasStation
                 fuel = Double.Parse(textBox3.Text);
                 maxFuel = Double.Parse(textBox4.Text);
                 price = Double.Parse(textBox5.Text);
+                if (GasStation.FoundStation(nameStation) != null)
+                {
+                    MessageBox.Show("Gas station with that name already exists");
+                    return;
+                }
                 if (fuel <= 0 || maxFuel <= 0 || price <= 0 || fuel > maxFuel)
                 {
                     throw new Exception();
@@ -45,6 +50,7 @@ namespace GasStation
             {
                 MessageBox.Show("Incorect input");
             }
+            
         }
     }
 }
