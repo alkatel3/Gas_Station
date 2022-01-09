@@ -53,22 +53,21 @@ namespace GasStation
         }
 
 
-       
-        //public void UsingBonus(double sum)
-        //{
-        //    if (Bonus <= sum)
-        //    {
-        //        sum -= Bonus;
-        //        Bonus = 0;// в даному випадку всі бонуси йдуть на погашення суми
-        //        MessageBox.Show($"To pay {sum} $");
-        //    }
-        //    else
-        //    {
-        //        Bonus -= sum;
-        //        MessageBox.Show("To pay 0 $");
-        //    }
-        //    GetInformation();
-        //}
-        
+
+        public void UsingBonus(double sum)
+        {
+            if (Bonus <= sum)
+            {
+                sum -= Bonus;
+                Bonus = 0;// в даному випадку всі бонуси йдуть на погашення суми
+                MessageBox.Show($"To pay {sum} $");
+            }
+            else
+            {
+                Bonus -= sum;
+                MessageBox.Show("To pay 0 $");
+            }
+            GetInformation();
+        }
     }
 }

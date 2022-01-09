@@ -1,6 +1,4 @@
-﻿
-using System;
-using System.Threading.Tasks;
+﻿using System;
 
 namespace GasStation
 {
@@ -151,12 +149,12 @@ namespace GasStation
             this.timer1.Tick += new System.EventHandler(timer1_Tick);
             this.timer1.Enabled = true;
             //
-            //label3
+            //labelTime
             //
             this.labelTime.AutoSize = true;
             this.labelTime.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.labelTime.Location = new System.Drawing.Point(10, 365);
-            this.labelTime.Name = "label3";
+            this.labelTime.Name = "labelTime";
             this.labelTime.TabIndex = 6;
             this.labelTime.Size = new System.Drawing.Size(100, 23);
             this.labelTime.TabIndex = 6;

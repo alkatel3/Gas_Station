@@ -12,6 +12,7 @@ namespace GasStation
 {
     public partial class VerificatingClient : BaseForm
     {
+        //static public bool Done = false;
         public VerificatingClient()
         {
             InitializeComponent();
@@ -20,9 +21,17 @@ namespace GasStation
         {
             var Account = AccountClient.FoundAccount(textBox1.Text, textBox2.Text);
             if (Account != null)
-                Account.GetInformation();
-            baseForm = new ChooseGasStationForClient();
-            base.buttonNext_Click(sender, e); 
+            {
+                //Done = true;
+                Account?.GetInformation();
+                baseForm = new ChooseGasStationForClient();
+                MessageBox.Show($"{baseForm}");
+                buttonNext_Click(sender, e);
+            }
+            else
+            {
+                MessageBox.Show("Account didn't found");
+            }
         }
     }
 }

@@ -32,6 +32,7 @@ namespace GasStation
             base.InitializeComponent();
             this.label3 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            //this.checkBox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -53,6 +54,12 @@ namespace GasStation
             this.label3.Size = new System.Drawing.Size(247, 23);
             this.label3.TabIndex = 20;
             this.label3.Text = "How many fuel do you want (L)";
+            ////
+            ////checkBox
+            ////
+            //this.checkBox.AutoSize=true;
+            //this.checkBox.Text = "Do you want your bonus?";
+            //this.checkBox.Location = new System.Drawing.Point(10,388);
             // 
             // textBox3
             // 
@@ -87,6 +94,7 @@ namespace GasStation
             this.Controls.Add(this.buttonBack);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.buttonCansel);
+            //this.Controls.Add(this.checkBox);
             this.Controls.Add(BaseForm.listBox1);
             this.Name = "ChooseGasStation";
             this.Text = "ChooseGasStation";
@@ -96,6 +104,7 @@ namespace GasStation
         }
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox textBox3;
+        //private System.Windows.Forms.CheckBox checkBox;
         #endregion
 
     }

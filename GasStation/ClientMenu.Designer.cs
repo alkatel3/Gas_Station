@@ -62,7 +62,7 @@ namespace GasStation
             //
             //buttonNext
             //
-            this.buttonCansel.Click += new System.EventHandler(buttonNext_Click);
+            this.buttonCansel.Click += new System.EventHandler(buttonCansel_Click);
             // 
             // ClientMenu
             // 

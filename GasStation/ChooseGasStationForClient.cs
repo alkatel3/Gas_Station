@@ -16,31 +16,33 @@ namespace GasStation
         public ChooseGasStationForClient()
         {
             InitializeComponent();
+            //if (VerificatingClient.Done)
+            //{
+            //    this.Controls.Add(this.checkBox);
+            //}
         }
         private void Next(object sender,EventArgs e)
         {
             try
             {
+                accountClient = AccountClient.GetValidAccount();
                 int index = listBox1.SelectedIndex;
                 double fuel = Double.Parse(textBox3.Text);
                 if (fuel <= 0)
                 {
                     throw new Exception();
                 }
-                double sum= GasStation.SellingFuel(fuel, index);
-
-                accountClient = AccountClient.GetValidAccount();
+                double sum = GasStation.SellingFuel(fuel, index);
+                //if (checkBox.Checked) 
+                //{
+                //    accountClient?.UsingBonus(sum);
+                //}
                 accountClient?.AddingBonus(sum);
             }
             catch
             {
                 MessageBox.Show("Incorect");
             }
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }
