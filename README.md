@@ -50,14 +50,21 @@ Also here I use primitive LINQ for search of the necessary client account or gas
         }
 
 I use the asynchronous WriteLineAsinc and ReadLineAsing methods to write and read
+            public async void SaveStation()
+        {
+            StationList.Add(this);
             using (StreamWriter writer = new StreamWriter("GasStationList.txt", true))
             {
                 await writer.WriteLineAsync(
                     $"{NameGasStation}\t\t" +
                     $"{FuelInGasStation}\t\t" +
                     $"{MaxFuel}\t\t" +
-                    $"{PriceFuel public static async void ReadFromListStationAsync()
+                    $"{PriceFuel}\t\t" +
+                    $"{Password}\t\t" +
+                    $"{datetime}");  // асинхронная запись в файл
             }
+            AddingItemsToListBoxs();
+        }
             
             
         public static async void ReadFromListStationAsync()
