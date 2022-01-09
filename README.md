@@ -50,6 +50,7 @@ Also here I use primitive LINQ for search of the necessary client account or gas
         }
 
 I use the asynchronous WriteLineAsinc and ReadLineAsing methods to write and read
+
         public async void SaveStation()
         {
             StationList.Add(this);
