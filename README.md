@@ -7,7 +7,7 @@ What about interesting moments?
 
 I use elementary reflection here to switch between forms.
 
- static public Form Show()
+        static public Form Show()
         {
             try
             {
@@ -50,17 +50,17 @@ Also here I use primitive LINQ for search of the necessary client account or gas
         }
 
 I use the asynchronous WriteLineAsinc and ReadLineAsing methods to write and read
- using (StreamWriter writer = new StreamWriter("GasStationList.txt", true))
+            using (StreamWriter writer = new StreamWriter("GasStationList.txt", true))
             {
                 await writer.WriteLineAsync(
                     $"{NameGasStation}\t\t" +
                     $"{FuelInGasStation}\t\t" +
                     $"{MaxFuel}\t\t" +
                     $"{PriceFuel public static async void ReadFromListStationAsync()
-        }
+            }
             
             
-public static async void ReadFromListStationAsync()
+        public static async void ReadFromListStationAsync()
         {
             GasStation station;
             using (StreamReader reader = new StreamReader("GasStationList.txt"))
