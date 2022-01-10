@@ -25,8 +25,5 @@ namespace GasStation
         {
             baseForm = new CreatingGasStation();
         }
-
-
-        
     }
 }

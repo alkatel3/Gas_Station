@@ -69,8 +69,8 @@ namespace GasStation
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "CreatingAccount";
-            this.Text = "Creating account"; ;
+            this.Name = "Verification Client";
+            this.Text = "Verification client account"; ;
         }
 
         #endregion

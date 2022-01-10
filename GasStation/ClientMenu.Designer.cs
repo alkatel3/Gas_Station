@@ -36,7 +36,7 @@ namespace GasStation
             // 
             this.label1.Font = new System.Drawing.Font("Segoe UI", 25.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label1.Size = new System.Drawing.Size(677, 59);
-            this.label1.Text = "             Do you have gas account?";
+            this.label1.Text = "           Do you have Client account?";
             // 
             // buttonYes
             // 

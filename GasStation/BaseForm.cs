@@ -12,15 +12,16 @@ namespace GasStation
 {
     public partial class BaseForm : Form
     {
-        private static bool DoReadingFromFileStation = true;
+        private static bool DoReadingFromFile = true;
         public static bool Do = true;
         protected BaseForm baseForm;
         public BaseForm()
         {
-            if (DoReadingFromFileStation)
+            if (DoReadingFromFile)
             {
                 GasStation.ReadFromListStationAsync();
-                DoReadingFromFileStation = false;
+                AccountClient.ReadFromListAccountAsync();
+                DoReadingFromFile = false;
             }
         }
         protected void buttonCansel_Click(object sender, EventArgs e)

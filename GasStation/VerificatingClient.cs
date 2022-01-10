@@ -25,7 +25,6 @@ namespace GasStation
                 //Done = true;
                 Account?.GetInformation();
                 baseForm = new ChooseGasStationForClient();
-                MessageBox.Show($"{baseForm}");
                 buttonNext_Click(sender, e);
             }
             else

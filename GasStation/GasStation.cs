@@ -53,14 +53,6 @@ namespace GasStation
                     $"{datetime}");  // асинхронная запись в файл
             }
             AddingItemsToListBoxs();
-            //BaseForm.listBox1.Items.Add(
-            //    $"{this.NameGasStation}\t\t\t\t" +
-            //    $"{this.FuelInGasStation}\t\t\t\t" +
-            //    $"{this.PriceFuel:#,##}");
-            //BaseForm.listBox2.Items.Add(
-            //    $"{this.NameGasStation}\t\t\t\t" +
-            //    $"{this.MaxFuel-FuelInGasStation}\t\t\t\t" +
-            //    $"{this.PriceFuel/MarkUp:#.##}");
 
         }
         static public GasStation FoundStation(string nameStation)
@@ -133,14 +125,12 @@ namespace GasStation
             $"{NameGasStation}\t\t\t\t" +
             $"{MaxFuel - FuelInGasStation}\t\t\t\t" +
             $"{PriceFuel / MarkUp:#.##}");
-
         }
         public static async void ReadFromListStationAsync()
         {
             GasStation station;
             using (StreamReader reader = new StreamReader("GasStationList.txt"))
             {
-                reader.ReadLine();
                 while (!reader.EndOfStream)
                 {
                     string result = await reader.ReadLineAsync();  // асинхронное чтение из файла

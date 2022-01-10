@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -18,6 +19,12 @@ namespace GasStation
             NameClient = nameClient;
             Password = password;
         }
+        private AccountClient(string nameClient, string password, double bonus)
+        {
+            NameClient = nameClient;
+            Password = password;
+            Bonus = bonus;
+        }
         public void GetInformation()
         {
             MessageBox.Show(
@@ -26,9 +33,16 @@ namespace GasStation
                 $"Password: {Password}\n" +
                 $"Bonus: {Bonus} $");
         }
-        public void SaveAccount()
+        public async void SaveAccount()
         {
             AccountList.Add(this);
+            using (StreamWriter writer = new StreamWriter("AccountClientList.txt",true))
+            {
+                await writer.WriteLineAsync(
+                    $"{NameClient}\t\t" +
+                    $"{Password}\t\t" +
+                    $"{Bonus}\t\t");  // асинхронная запись в файл
+            }
         }
         static public AccountClient FoundAccount(string AccountName, string AccountPassword)
         {
@@ -68,6 +82,36 @@ namespace GasStation
                 MessageBox.Show("To pay 0 $");
             }
             GetInformation();
+        }
+        public static async void ReadFromListAccountAsync()
+        {
+            AccountClient account;
+            using (StreamReader reader = new StreamReader("AccountClientList.txt"))
+            {
+                while (!reader.EndOfStream)
+                {
+                    string result = await reader.ReadLineAsync();  // асинхронное чтение из файла
+                    string[] accountClient = result.Split("\t\t");
+                    account = new(
+                       accountClient[0],
+                        accountClient[1],
+                        Double.Parse(accountClient[2]));
+                    AccountList.Add(account);
+                }
+            }
+        }
+        static async public void SaveAllAccountAtFile()
+        {
+            using (StreamWriter writer = new StreamWriter("AccountClientList.txt", false))
+            {
+                foreach (var account in AccountList)
+                {
+                    await writer.WriteLineAsync(
+                        $"{account.NameClient}\t\t" +
+                        $"{account.Password}\t\t" +
+                        $"{account.Bonus}");  // асинхронная запись в файл
+                }
+            }
         }
     }
 }

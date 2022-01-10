@@ -32,9 +32,9 @@ namespace GasStation
                 finally
                 {
                     GasStation.SaveAllStationAtFile();
+                    AccountClient.SaveAllAccountAtFile();
                 }
             }
-            //Application.Run(new ChooseGasStation());
         }
     }
 }
