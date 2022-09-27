@@ -9,25 +9,26 @@ namespace GasStation
 {
     static class ListForm
     {
-        static List<Form> listForm = new List<Form>(100);
+        static Stack<Form> StackForm = new Stack<Form>(100);
         
         static public void AddForm (Form form)
         {
-            listForm.Add(form);
+            StackForm.Push(form);
         }
         static public void Back()
         {
-            listForm.RemoveAt(listForm.Count - 1);
+            StackForm.Pop();
         }
         static public void Cansel()
         {
-            listForm.RemoveRange(1, listForm.ToArray().Length - 1);
+            StackForm.Clear();
+            StackForm.Push(new ChooseWho());
         }
         static public Form Show()
         {
             try
             {
-                Type FormType = listForm[listForm.Count-1].GetType();
+                Type FormType = StackForm.Peek().GetType();
                 ConstructorInfo[] constructors = FormType.GetConstructors();
                 Form form = (Form)constructors[0].Invoke(new Object[0]);
                 return form;
